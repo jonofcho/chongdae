@@ -10,13 +10,12 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
 COPY package.json /usr/src/app/package.json
-COPY . /usr/src/app
-COPY angular.json /usr/src/app/angular.json
-
 RUN npm install --save
-RUN npm install -g @angular/cli@6.2.5 --save
+COPY . /usr/src/app
+
+RUN npm install -g @angular/cli@7.0.2 --save
 
 # add app
-
 # start app
 CMD ng serve --host 0.0.0.0
+EXPOSE 4200
